@@ -9,3 +9,11 @@ models:
         tests:
           - unique
           - not_null
+  
+  - name: stg_orders
+    description: "Staged order data"
+    columns:
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['completed', 'shipped', 'returned']

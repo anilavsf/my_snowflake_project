@@ -1,3 +1,11 @@
+{{
+config(
+    materialized='table',
+    tags=['dim', 'customer'],
+    description='This table contains customer information along with their order history.'
+)
+}}
+
 with customers as (
     select * from {{ ref('stg_customers') }}
 ),
@@ -11,7 +19,7 @@ customer_orders as (
         max(order_date) as most_recent_order_date,
         count(order_id) as number_of_orders
     from orders
-    group by 
+    group by 1
 ),
 final as (
     select

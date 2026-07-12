@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: local_raw_data
+    database: dbt_demo
+    schema: demo_schema
+    tables:
+      - name: customers
+      - name: orders

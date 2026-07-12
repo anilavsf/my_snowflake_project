@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "A clean dimension table containing customer metrics"
+    columns:
+      - name: customer_id
+        description: "The primary key of the customer record"
+        tests:
+          - unique
+          - not_null
